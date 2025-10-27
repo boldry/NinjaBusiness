@@ -1,0 +1,430 @@
+# Project Evaluation Checklist
+
+## Pre-Evaluation Setup
+- [ ] **Project Information Collected**
+  - [ ] Project name and description
+  - [ ] Key stakeholders identified
+  - [ ] Initial market research completed
+  - [ ] Competitive landscape mapped
+
+- [ ] **Team Assignment**
+  - [ ] Product Manager assigned
+  - [ ] Technical Lead assigned
+  - [ ] Business Lead assigned
+  - [ ] Executive Sponsor assigned
+
+## Phase 1: Idea Evaluation Checklist
+
+### Market Research
+- [ ] **TAM/SAM/SOM Analysis**
+  - [ ] Total Addressable Market calculated
+  - [ ] Serviceable Addressable Market defined
+  - [ ] Serviceable Obtainable Market estimated
+  - [ ] Market growth rate researched
+  - [ ] Data sources documented
+
+- [ ] **Competitive Analysis**
+  - [ ] Direct competitors identified
+  - [ ] Indirect competitors identified
+  - [ ] Competitive positioning analyzed
+  - [ ] Competitive advantages identified
+  - [ ] Market gaps identified
+
+- [ ] **Customer Research**
+  - [ ] Target customer segments defined
+  - [ ] Customer personas created
+  - [ ] Customer pain points validated
+  - [ ] Customer interviews conducted
+  - [ ] Market demand validated
+
+### Business Case
+- [ ] **Value Proposition**
+  - [ ] Problem statement clearly defined
+  - [ ] Solution approach outlined
+  - [ ] Unique value proposition identified
+  - [ ] Competitive differentiation established
+
+- [ ] **Revenue Model**
+  - [ ] Revenue streams identified
+  - [ ] Pricing strategy defined
+  - [ ] Business model validated
+  - [ ] Revenue projections created
+
+- [ ] **Financial Projections**
+  - [ ] Development costs estimated
+  - [ ] Operating costs estimated
+  - [ ] Revenue projections created
+  - [ ] Break-even analysis completed
+  - [ ] ROI calculations done
+
+### Strategic Alignment
+- [ ] **Corporate Objectives**
+  - [ ] Aligns with company vision
+  - [ ] Supports strategic goals
+  - [ ] Fits technology roadmap
+  - [ ] Leverages existing capabilities
+
+- [ ] **Resource Requirements**
+  - [ ] Team requirements identified
+  - [ ] Technology requirements identified
+  - [ ] Budget requirements estimated
+  - [ ] Timeline requirements estimated
+
+### Risk Assessment
+- [ ] **Market Risks**
+  - [ ] Market size risks identified
+  - [ ] Competitive risks assessed
+  - [ ] Customer adoption risks evaluated
+  - [ ] Market timing risks considered
+
+- [ ] **Technical Risks**
+  - [ ] Technology feasibility assessed
+  - [ ] Development complexity evaluated
+  - [ ] Integration risks identified
+  - [ ] Scalability risks considered
+
+- [ ] **Business Risks**
+  - [ ] Financial risks assessed
+  - [ ] Regulatory risks identified
+  - [ ] Partnership risks evaluated
+  - [ ] Execution risks considered
+
+### Phase 1 Deliverables
+- [ ] **Vision Brief**
+  - [ ] Executive summary completed
+  - [ ] Problem statement defined
+  - [ ] Solution overview created
+  - [ ] Market opportunity analyzed
+  - [ ] Competitive landscape mapped
+  - [ ] Business model outlined
+  - [ ] Team requirements identified
+  - [ ] Financial projections created
+  - [ ] Risks and mitigation identified
+  - [ ] Success criteria defined
+
+### Phase 1 Approval
+- [ ] **Stakeholder Review**
+  - [ ] Product Manager review completed
+  - [ ] Technical Lead review completed
+  - [ ] Business Lead review completed
+  - [ ] Executive Sponsor review completed
+
+- [ ] **Go/No-Go Decision**
+  - [ ] Decision criteria met
+  - [ ] Approval obtained
+  - [ ] Next phase approved
+  - [ ] Resources allocated
+
+## Phase 2: Scope & Design Checklist
+
+### Business Requirements
+- [ ] **Stakeholder Analysis**
+  - [ ] All stakeholders identified
+  - [ ] Stakeholder requirements gathered
+  - [ ] Stakeholder influence mapped
+  - [ ] Communication plan created
+
+- [ ] **Business Requirements Document**
+  - [ ] Functional requirements defined
+  - [ ] Non-functional requirements defined
+  - [ ] Business rules documented
+  - [ ] Data requirements specified
+  - [ ] Integration requirements defined
+
+### Technical Design
+- [ ] **Technical Architecture**
+  - [ ] System architecture designed
+  - [ ] Technology stack selected
+  - [ ] Integration points identified
+  - [ ] Scalability plan created
+  - [ ] Security requirements defined
+
+- [ ] **Product Requirements Document**
+  - [ ] User stories created
+  - [ ] Acceptance criteria defined
+  - [ ] User interface requirements specified
+  - [ ] Performance requirements defined
+  - [ ] Quality requirements specified
+
+### Go-to-Market Strategy
+- [ ] **Market Strategy**
+  - [ ] Target market defined
+  - [ ] Positioning strategy created
+  - [ ] Messaging framework developed
+  - [ ] Competitive positioning established
+
+- [ ] **Sales Strategy**
+  - [ ] Sales process defined
+  - [ ] Sales team requirements identified
+  - [ ] Sales tools and materials planned
+  - [ ] Sales targets set
+
+- [ ] **Marketing Strategy**
+  - [ ] Marketing channels identified
+  - [ ] Marketing campaigns planned
+  - [ ] Marketing budget allocated
+  - [ ] Marketing metrics defined
+
+### Financial Planning
+- [ ] **Detailed Financial Model**
+  - [ ] Revenue model detailed
+  - [ ] Cost structure defined
+  - [ ] Cash flow projections created
+  - [ ] Sensitivity analysis completed
+  - [ ] Funding requirements identified
+
+- [ ] **Budget Approval**
+  - [ ] Development budget approved
+  - [ ] Marketing budget approved
+  - [ ] Operational budget approved
+  - [ ] Contingency budget allocated
+
+### Phase 2 Deliverables
+- [ ] **Business Requirements Document**
+- [ ] **Product Requirements Document**
+- [ ] **Technical Architecture Document**
+- [ ] **Go-to-Market Strategy**
+- [ ] **Financial Model**
+- [ ] **Project Plan**
+- [ ] **Risk Assessment**
+- [ ] **Success Metrics**
+
+### Phase 2 Approval
+- [ ] **Technical Feasibility**
+  - [ ] Architecture review completed
+  - [ ] Technology stack validated
+  - [ ] Development timeline confirmed
+  - [ ] Resource requirements validated
+
+- [ ] **Business Viability**
+  - [ ] Business case validated
+  - [ ] Financial model approved
+  - [ ] Market strategy approved
+  - [ ] Go-to-market plan approved
+
+- [ ] **Go/No-Go Decision**
+  - [ ] All criteria met
+  - [ ] Approval obtained
+  - [ ] Development phase approved
+  - [ ] Team fully assigned
+
+## Phase 3: Development Checklist
+
+### Development Setup
+- [ ] **Development Environment**
+  - [ ] Development tools set up
+  - [ ] Version control configured
+  - [ ] CI/CD pipeline established
+  - [ ] Testing environment created
+
+- [ ] **Team Setup**
+  - [ ] Development team assembled
+  - [ ] Roles and responsibilities defined
+  - [ ] Communication protocols established
+  - [ ] Project management tools configured
+
+### Development Process
+- [ ] **Agile Development**
+  - [ ] Sprint planning completed
+  - [ ] User stories prioritized
+  - [ ] Development sprints executed
+  - [ ] Regular reviews conducted
+
+- [ ] **Quality Assurance**
+  - [ ] Code reviews conducted
+  - [ ] Unit testing implemented
+  - [ ] Integration testing completed
+  - [ ] Performance testing done
+
+### User Experience
+- [ ] **Design Implementation**
+  - [ ] UI/UX design completed
+  - [ ] User interface implemented
+  - [ ] User experience tested
+  - [ ] Accessibility requirements met
+
+- [ ] **User Testing**
+  - [ ] User acceptance testing completed
+  - [ ] Feedback collected and incorporated
+  - [ ] Usability issues resolved
+  - [ ] Performance benchmarks met
+
+### Phase 3 Deliverables
+- [ ] **MVP Development**
+- [ ] **User Interface**
+- [ ] **Technical Implementation**
+- [ ] **Quality Assurance**
+- [ ] **User Testing**
+- [ ] **Documentation**
+- [ ] **Training Materials**
+
+### Phase 3 Approval
+- [ ] **Technical Review**
+  - [ ] Code quality review completed
+  - [ ] Performance benchmarks met
+  - [ ] Security requirements met
+  - [ ] Integration testing passed
+
+- [ ] **Business Review**
+  - [ ] Functional requirements met
+  - [ ] User acceptance achieved
+  - [ ] Quality standards met
+  - [ ] Documentation completed
+
+- [ ] **Go/No-Go Decision**
+  - [ ] All criteria met
+  - [ ] Approval obtained
+  - [ ] Deployment phase approved
+  - [ ] Launch plan approved
+
+## Phase 4: Deployment Checklist
+
+### Launch Preparation
+- [ ] **Infrastructure Setup**
+  - [ ] Production environment configured
+  - [ ] Monitoring and analytics set up
+  - [ ] Backup and recovery procedures established
+  - [ ] Security measures implemented
+
+- [ ] **Launch Strategy**
+  - [ ] Launch timeline defined
+  - [ ] Launch activities planned
+  - [ ] Launch team assigned
+  - [ ] Launch metrics defined
+
+### Marketing and Sales
+- [ ] **Marketing Campaign**
+  - [ ] Marketing materials created
+  - [ ] Marketing campaigns launched
+  - [ ] PR and media outreach completed
+  - [ ] Social media strategy executed
+
+- [ ] **Sales Enablement**
+  - [ ] Sales team trained
+  - [ ] Sales materials created
+  - [ ] Sales process implemented
+  - [ ] Sales targets set
+
+### Customer Onboarding
+- [ ] **Onboarding Process**
+  - [ ] Onboarding workflow created
+  - [ ] Onboarding materials prepared
+  - [ ] Customer support processes established
+  - [ ] Success metrics defined
+
+- [ ] **Support Structure**
+  - [ ] Support team trained
+  - [ ] Support tools configured
+  - [ ] Support processes documented
+  - [ ] Escalation procedures established
+
+### Phase 4 Deliverables
+- [ ] **Launch Strategy**
+- [ ] **Marketing Campaign**
+- [ ] **Sales Enablement**
+- [ ] **Customer Onboarding**
+- [ ] **Support Structure**
+- [ ] **Monitoring and Analytics**
+
+### Phase 4 Approval
+- [ ] **Launch Readiness**
+  - [ ] All systems ready
+  - [ ] Team trained and ready
+  - [ ] Marketing campaigns launched
+  - [ ] Support processes operational
+
+- [ ] **Go/No-Go Decision**
+  - [ ] All criteria met
+  - [ ] Approval obtained
+  - [ ] Product launched
+  - [ ] Success metrics tracking
+
+## Phase 5: Continuous Service & Support Checklist
+
+### Ongoing Operations
+- [ ] **Performance Monitoring**
+  - [ ] Key metrics tracked
+  - [ ] Performance issues identified
+  - [ ] Optimization opportunities identified
+  - [ ] Regular reviews conducted
+
+- [ ] **Customer Success**
+  - [ ] Customer satisfaction monitored
+  - [ ] Customer success programs implemented
+  - [ ] Customer feedback collected
+  - [ ] Customer retention strategies executed
+
+### Product Evolution
+- [ ] **Feature Development**
+  - [ ] Feature requests collected
+  - [ ] Feature roadmap updated
+  - [ ] New features developed
+  - [ ] Feature adoption tracked
+
+- [ ] **Market Expansion**
+  - [ ] New market opportunities identified
+  - [ ] Market expansion strategies developed
+  - [ ] New customer segments targeted
+  - [ ] Partnership opportunities explored
+
+### Business Optimization
+- [ ] **Revenue Optimization**
+  - [ ] Pricing strategies reviewed
+  - [ ] Revenue streams optimized
+  - [ ] Upsell opportunities identified
+  - [ ] Cross-sell strategies implemented
+
+- [ ] **Cost Optimization**
+  - [ ] Cost structure reviewed
+  - [ ] Efficiency improvements identified
+  - [ ] Cost reduction strategies implemented
+  - [ ] ROI optimization achieved
+
+### Phase 5 Deliverables
+- [ ] **Performance Reports**
+- [ ] **Customer Success Metrics**
+- [ ] **Feature Roadmap**
+- [ ] **Market Expansion Plan**
+- [ ] **Revenue Optimization Plan**
+- [ ] **Cost Optimization Plan**
+
+### Phase 5 Success Criteria
+- [ ] **Customer Metrics**
+  - [ ] Customer satisfaction targets met
+  - [ ] Customer retention targets met
+  - [ ] Customer growth targets met
+  - [ ] Customer success metrics achieved
+
+- [ ] **Business Metrics**
+  - [ ] Revenue targets met
+  - [ ] Profitability targets met
+  - [ ] Market share targets met
+  - [ ] ROI targets achieved
+
+## Overall Project Success Criteria
+- [ ] **Financial Success**
+  - [ ] Revenue targets achieved
+  - [ ] Profitability targets met
+  - [ ] ROI targets achieved
+  - [ ] Break-even timeline met
+
+- [ ] **Market Success**
+  - [ ] Market share targets met
+  - [ ] Customer acquisition targets met
+  - [ ] Customer satisfaction targets met
+  - [ ] Competitive positioning achieved
+
+- [ ] **Operational Success**
+  - [ ] Quality standards met
+  - [ ] Performance benchmarks achieved
+  - [ ] Team productivity targets met
+  - [ ] Process efficiency achieved
+
+---
+**Checklist Usage Notes**:
+- Use this checklist for each product evaluation
+- Check off items as they are completed
+- Use comments to note any issues or deviations
+- Review and update checklist regularly
+- Ensure all stakeholders are aware of progress
+
