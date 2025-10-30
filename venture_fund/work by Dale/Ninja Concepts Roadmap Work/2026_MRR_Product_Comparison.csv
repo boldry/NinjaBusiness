@@ -1,0 +1,22 @@
+Product,Quarter,Subs_Sold_Qtr_Current,Customers_Sold_Qtr_Current,Seats_Sold_Qtr_Current,Vendors_Sold_Qtr_Current,EoQ_MRR_Current_USD,EoQ_ARR_Current_USD,Subs_Sold_Qtr_Scaled,Customers_Sold_Qtr_Scaled,Seats_Sold_Qtr_Scaled,Vendors_Sold_Qtr_Scaled,EoQ_MRR_Scaled_USD,EoQ_ARR_Scaled_USD
+Ninja Notes B2C,Q1,800,,,,24077,288924,466,,,,14027,168324
+Ninja Notes B2C,Q2,1200,,,,47626,571512,700,,,,27778,333336
+Ninja Notes B2C,Q3,1800,,,,81972,983664,1050,,,,47790,573480
+Ninja Notes B2C,Q4,2700,,,,134297,1611564,1575,,,,78295,939540
+Ninja Notes Enterprise,Q1,,2,800,,28000,336000,,1,400,,14000,168000
+Ninja Notes Enterprise,Q2,,2,800,,56000,672000,,1,400,,28000,336000
+Ninja Notes Enterprise,Q3,,3,1200,,98000,1176000,,2,800,,56000,672000
+Ninja Notes Enterprise,Q4,,3,1200,,140000,1680000,,2,800,,84000,1008000
+Omni Sales,Q1,,4,200,,15000,180000,,2,100,,7500,90000
+Omni Sales,Q2,,4,200,,30000,360000,,2,100,,15000,180000
+Omni Sales,Q3,,5,250,,48750,585000,,3,150,,26250,315000
+Omni Sales,Q4,,6,300,,71250,855000,,4,200,,41250,495000
+Omni Service,Q1,,0,0,,0,0,,0,0,,0,0
+Omni Service,Q2,,2,1000,,75000,900000,,1,500,,37500,450000
+Omni Service,Q3,,3,1500,,187500,2250000,,2,1000,,112500,1350000
+Omni Service,Q4,,4,2000,,337500,4050000,,2,1000,,187500,2250000
+Omni Concierge,Q1,,,,0,0,0,,,,0,0,0
+Omni Concierge,Q2,,,,25,6250,75000,,,,15,3750,45000
+Omni Concierge,Q3,,,,40,16250,195000,,,,23,9500,114000
+Omni Concierge,Q4,,,,60,31250,375000,,,,35,18250,219000
+

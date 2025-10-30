@@ -1,0 +1,47 @@
+====================================================
+  CURSOR CONVERSATION ARCHIVE - GETTING STARTED
+====================================================
+
+LOCATION: work by Dale\conversation_archive\
+
+QUICKEST WAY TO SAVE A CONVERSATION:
+1. Double-click "quick_save.bat"
+2. Enter project name
+3. Enter topic
+4. Paste your conversation in the file that opens
+
+----------------------------------------------------
+
+FILES IN THIS FOLDER:
+
+📄 quick_save.bat         <- DOUBLE-CLICK THIS!
+📄 save_conversation.ps1  <- PowerShell version
+📄 QUICK_START.md         <- 30-second guide
+📄 README.md              <- Complete documentation
+📄 index.md               <- Navigation hub
+
+📁 by_date/               <- Conversations by date
+📁 by_project/            <- Conversations by project  
+📁 by_topic/              <- Conversations by topic
+
+----------------------------------------------------
+
+HOW TO SAVE THIS CONVERSATION:
+1. In Cursor: Ctrl+A (select all)
+2. Ctrl+C (copy)
+3. Double-click quick_save.bat
+4. Enter "Setup" as project
+5. Enter "ConversationSaveSystem" as topic
+6. Paste into the opened file
+7. Save with Ctrl+S
+
+----------------------------------------------------
+
+NEED HELP?
+- Open QUICK_START.md for a quick guide
+- Open README.md for complete documentation
+- Look in by_date\2025-10-30\ for an example
+
+====================================================
+
+

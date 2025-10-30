@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Timeline & Shared Infrastructure Evolution - Ninja Concepts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header h2 {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            backdrop-filter: blur(10px);
+        }
+
+        .content {
+            padding: 60px 60px 80px;
+        }
+
+        .executive-summary {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            border-left: 5px solid #667eea;
+        }
+
+        .executive-summary h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .key-timeline {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .key-timeline h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin: 60px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+        }
+
+        h4 {
+            color: #5a6c7d;
+            font-size: 1.3em;
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        ul, ol {
+            margin: 20px 0 20px 40px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:hover {
+            background-color: #e8f4f8;
+            transition: background-color 0.3s;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #fdcb6e;
+        }
+
+        .highlight-box h4 {
+            color: #d63031;
+            margin-top: 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #a8e6cf 0%, #74b9ff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #0984e3;
+        }
+
+        .info-box h4 {
+            color: #0984e3;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #d63031;
+            color: white;
+        }
+
+        .warning-box h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin: 25px 0;
+            white-space: pre;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .phase-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+        }
+
+        .phase-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .timeline-visual {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+
+        .footer {
+            background: #2d3436;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .classification {
+            display: inline-block;
+            background: #d63031;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .toc h3 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .toc ol {
+            margin-left: 20px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header h2 {
+                font-size: 1.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.4em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .header {
+                background: #667eea;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Master Timeline & Shared Infrastructure Evolution</h1>
+            <h2>Ninja Concepts 3-Year Strategic Roadmap (2026-2028)</h2>
+            <div class="meta-info">
+                <div class="meta-item"><strong>Date:</strong> January 2025</div>
+                <div class="meta-item"><strong>Version:</strong> 1.0</div>
+                <div class="meta-item"><strong>Purpose:</strong> Foundation Document</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>This document establishes the <strong>company-level timeline, milestones, and shared infrastructure evolution</strong> that all product roadmaps depend on. It ensures:</p>
+                <ul>
+                    <li>Alignment with $1.25M funding scenario and 18-month runway</li>
+                    <li>Coordinated resource allocation across 5 products</li>
+                    <li>Compliance and certification readiness for enterprise sales</li>
+                    <li>Team scaling synchronized with product launches</li>
+                </ul>
+
+                <div class="key-timeline">
+                    <h3>Key Timeline:</h3>
+                    <ul>
+                        <li><strong>Q4 2025</strong>: Funding close, initial team scaling</li>
+                        <li><strong>2026 (Year 1)</strong>: Foundation year - Ninja Notes + Omni scaling</li>
+                        <li><strong>2027 (Year 2)</strong>: Expansion year - Sona launch, Series A</li>
+                        <li><strong>2028 (Year 3)</strong>: Scale year - Multi-product maturity, profitability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#milestones">Company Milestones Overview</a></li>
+                    <li><a href="#funding">Funding & Financial Milestones</a></li>
+                    <li><a href="#infrastructure">Shared AI Infrastructure Evolution</a></li>
+                    <li><a href="#compliance">Compliance & Certification Timeline</a></li>
+                    <li><a href="#team">Team Scaling & Key Hires</a></li>
+                    <li><a href="#dependencies">Cross-Product Dependencies</a></li>
+                    <li><a href="#risks">Risk Factors & Contingencies</a></li>
+                </ol>
+            </div>
+
+            <h2 id="milestones">1. Company Milestones Overview</h2>
+
+            <div class="phase-card">
+                <h3>Phase 1: Foundation (Q4 2025 - Q4 2026)</h3>
+                <p><strong>Objective:</strong> Achieve product-market fit, establish enterprise credibility, reach $1M ARR</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quarter</th>
+                            <th>Key Milestone</th>
+                            <th>Success Metric</th>
+                            <th>Status Gate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Q4 2025</strong></td>
+                            <td>Funding close + Team ramp</td>
+                            <td>$1.25M raised @ $5M pre, 11 → 16 FTEs</td>
+                            <td>Funding closed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q1 2026</strong></td>
+                            <td>Product-market fit signals</td>
+                            <td>2K users, $50K MRR, &lt;$100 CAC</td>
+                            <td>5K users or pivot</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q2 2026</strong></td>
+                            <td>SOC 2 Type I certified</td>
+                            <td>Certification complete, 2 enterprise pilots</td>
+                            <td>Enterprise sales gate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q3 2026</strong></td>
+                            <td>HP partnership scaling</td>
+                            <td>10% of users from HP channel</td>
+                            <td>Channel validation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q4 2026</strong></td>
+                            <td>$1M ARR milestone</td>
+                            <td>$1M ARR run rate, 10K users, 17 Omni customers</td>
+                            <td>Series A prep begins</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4>Critical Success Factors:</h4>
+                    <ul>
+                        <li>Ninja Notes viral growth (direct + HP channel)</li>
+                        <li>Omni pilot → commercial conversions (5 → 17 customers)</li>
+                        <li>SOC 2 Type I unlocks enterprise sales</li>
+                        <li>Team scaling without cash crunch (runway management)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-card">
+                <h3>Phase 2: Expansion (2027 - Year 2)</h3>
+                <p><strong>Objective:</strong> Multi-product portfolio, international expansion, Series A readiness</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quarter</th>
+                            <th>Key Milestone</th>
+                            <th>Success Metric</th>
+                            <th>Status Gate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Q1 2027</strong></td>
+                            <td>Break-even cash flow</td>
+                            <td>Operating cash flow positive</td>
+                            <td>Financial sustainability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q2 2027</strong></td>
+                            <td>Sona commercial launch</td>
+                            <td>500 devices sold, beta feedback incorporated</td>
+                            <td>Hardware market validation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q3 2027</strong></td>
+                            <td>$10M ARR achieved</td>
+                            <td>$10M+ ARR, 40K Ninja Notes users</td>
+                            <td>Series A criteria met</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q4 2027</strong></td>
+                            <td>Series A close</td>
+                            <td>$10-12M raised @ $45-55M pre</td>
+                            <td>Growth capital secured</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4>Critical Success Factors:</h4>
+                    <ul>
+                        <li>Cash flow positive before Series A (reduces dilution)</li>
+                        <li>Sona hardware manufacturing & supply chain operational</li>
+                        <li>40K Ninja Notes users = network effects kicking in</li>
+                        <li>Multi-product customers (30%+ using 2+ products)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-card">
+                <h3>Phase 3: Scale (2028 - Year 3)</h3>
+                <p><strong>Objective:</strong> Market leadership, profitability, exit positioning</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quarter</th>
+                            <th>Key Milestone</th>
+                            <th>Success Metric</th>
+                            <th>Status Gate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Q1 2028</strong></td>
+                            <td>Profitability achieved</td>
+                            <td>Positive EBITDA, 20%+ net margins</td>
+                            <td>Sustainable growth model</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q2 2028</strong></td>
+                            <td>100K users milestone</td>
+                            <td>100K Ninja Notes users, 5K Sona devices</td>
+                            <td>Scale economies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q3 2028</strong></td>
+                            <td>International expansion</td>
+                            <td>20% revenue from EMEA</td>
+                            <td>Geographic diversification</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Q4 2028</strong></td>
+                            <td>$25M ARR achieved</td>
+                            <td>$22.9M ARR, exit positioning begins</td>
+                            <td>Strategic conversations</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4>Critical Success Factors:</h4>
+                    <ul>
+                        <li>Operating leverage (revenue per employee $347K+)</li>
+                        <li>International go-to-market operational</li>
+                        <li>Brand recognition in 3+ product categories</li>
+                        <li>Acquirer interest (ServiceNow, Salesforce, Microsoft)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 id="funding">2. Funding & Financial Milestones</h2>
+
+            <h3>Seed Round (Q4 2025)</h3>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Raise Amount</div>
+                    <div class="metric-value">$1.25M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Pre-Money Valuation</div>
+                    <div class="metric-value">$5.0M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Post-Money Valuation</div>
+                    <div class="metric-value">$6.25M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Investor Equity</div>
+                    <div class="metric-value">20%</div>
+                </div>
+            </div>
+
+            <h4>Use of Funds:</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>%</th>
+                        <th>Hires</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Product & Engineering</strong></td>
+                        <td>$400K</td>
+                        <td>32%</td>
+                        <td>4 FTEs</td>
+                        <td>Scale Ninja Notes, Omni beta, Sona prototype</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales & GTM</strong></td>
+                        <td>$325K</td>
+                        <td>26%</td>
+                        <td>5 FTEs</td>
+                        <td>Channel sales, HP partnership scaling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Services Delivery</strong></td>
+                        <td>$200K</td>
+                        <td>16%</td>
+                        <td>2 FTEs</td>
+                        <td>Implementation support for product sales</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operations & Leadership</strong></td>
+                        <td>$225K</td>
+                        <td>18%</td>
+                        <td>1 FTE</td>
+                        <td>CFO hire, SOC 2 audit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Working Capital</strong></td>
+                        <td>$100K</td>
+                        <td>8%</td>
+                        <td>-</td>
+                        <td>2-month buffer, AR float</td>
+                    </tr>
+                    <tr style="background: #e8f4f8; font-weight: bold;">
+                        <td><strong>Total</strong></td>
+                        <td><strong>$1.25M</strong></td>
+                        <td><strong>100%</strong></td>
+                        <td><strong>12 hires</strong></td>
+                        <td>18-month runway to cash flow positive</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Runway Analysis:</h4>
+                <ul>
+                    <li><strong>Gross runway</strong>: 6.25 months (at $200K/month burn)</li>
+                    <li><strong>Net runway</strong>: 12-14 months (revenue ramp reduces burn)</li>
+                    <li><strong>Cash flow positive target</strong>: Q4 2026 - Q1 2027</li>
+                    <li><strong>Bridge option</strong>: $500K available Q2 2026 if revenue lags</li>
+                </ul>
+            </div>
+
+            <h3>Series A (Q4 2027 - Q2 2028)</h3>
+
+            <h4>Target Metrics at Fundraise:</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Target</th>
+                        <th>Benchmark</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ARR</strong></td>
+                        <td>$12-15M</td>
+                        <td>$10M+ required</td>
+                        <td>Series A minimum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ARR Growth</strong></td>
+                        <td>200%+ YoY</td>
+                        <td>150%+ good</td>
+                        <td>Hypergrowth</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gross Margin</strong></td>
+                        <td>75%+</td>
+                        <td>70%+ good</td>
+                        <td>Best-in-class</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Revenue Retention</strong></td>
+                        <td>120%+</td>
+                        <td>110%+ good</td>
+                        <td>Expansion revenue strong</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LTV/CAC Ratio</strong></td>
+                        <td>30:1+</td>
+                        <td>3:1+ good</td>
+                        <td>Exceptional efficiency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burn Multiple</strong></td>
+                        <td>&lt;1.0</td>
+                        <td>&lt;1.5 good</td>
+                        <td>Capital efficient</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customers</strong></td>
+                        <td>150-200</td>
+                        <td>100+ required</td>
+                        <td>Enterprise traction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logo Quality</strong></td>
+                        <td>10+ F500</td>
+                        <td>5+ preferred</td>
+                        <td>Brand validation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Raise Amount</div>
+                    <div class="metric-value">$10-12M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Pre-Money Valuation</div>
+                    <div class="metric-value">$45-55M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Post-Money Valuation</div>
+                    <div class="metric-value">$55-67M</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Investor Equity</div>
+                    <div class="metric-value">18-22%</div>
+                </div>
+            </div>
+
+            <h4>Use of Funds:</h4>
+            <ul>
+                <li><strong>Sales & Marketing</strong>: $4M (scale to 20+ AEs, international expansion)</li>
+                <li><strong>Product & Engineering</strong>: $3M (mobile apps, API platform, international localization)</li>
+                <li><strong>Operations</strong>: $2M (CTO hire, DevOps, international infrastructure)</li>
+                <li><strong>Working Capital</strong>: $1-3M (AR financing, Sona inventory buffer)</li>
+            </ul>
+
+            <h3>Financial Trajectory (2026-2028)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Q4 2025</th>
+                        <th>2026 (Y1)</th>
+                        <th>2027 (Y2)</th>
+                        <th>2028 (Y3)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total Revenue</strong></td>
+                        <td>$315K</td>
+                        <td>$4.24M</td>
+                        <td>$14.62M</td>
+                        <td>$33.98M</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gross Margin</strong></td>
+                        <td>81%</td>
+                        <td>75%</td>
+                        <td>76%</td>
+                        <td>74%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operating Margin</strong></td>
+                        <td>-82%</td>
+                        <td>-31%</td>
+                        <td>10%</td>
+                        <td>22%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Margin</strong></td>
+                        <td>-86%</td>
+                        <td>-33%</td>
+                        <td>10%</td>
+                        <td>18%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ending Cash</strong></td>
+                        <td>($272K)</td>
+                        <td>($376K)</td>
+                        <td>$1.27M</td>
+                        <td>$16.84M</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Headcount</strong></td>
+                        <td>11</td>
+                        <td>28</td>
+                        <td>55</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revenue/Employee</strong></td>
+                        <td>$29K</td>
+                        <td>$151K</td>
+                        <td>$266K</td>
+                        <td>$347K</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Key Inflection Points:</h4>
+                <ul>
+                    <li><strong>Cash flow positive</strong>: Q4 2026 - Q1 2027 (Month 12-15)</li>
+                    <li><strong>EBITDA positive</strong>: Q2 2027 (Month 18)</li>
+                    <li><strong>Net income positive</strong>: Q4 2027 (Month 24)</li>
+                    <li><strong>20%+ net margins</strong>: 2028 onwards</li>
+                </ul>
+            </div>
+
+            <h2 id="infrastructure">3. Shared AI Infrastructure Evolution</h2>
+
+            <p>All Ninja Concepts products share a unified AI infrastructure that evolves over time. This provides:</p>
+            <ul>
+                <li><strong>60% faster product development</strong> (code reuse, shared frameworks)</li>
+                <li><strong>Consistent security & compliance</strong> (single audit, all products covered)</li>
+                <li><strong>Cross-product intelligence</strong> (Ninja Notes data enhances Omni, etc.)</li>
+            </ul>
+
+            <h3>Core AI Stack</h3>
+
+            <div class="code-block">┌─────────────────────────────────────────────────────┐
+│          Product Layer (User-Facing)                │
+│  Ninja Notes  │  Omni Suite  │  Sona (Prototype)   │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│         Agentic AI Orchestration Layer              │
+│  - Task routing & context management                │
+│  - Multi-agent coordination                         │
+│  - Workflow automation                              │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│            AI Model & API Layer                     │
+│  - OpenAI GPT-4 / Anthropic Claude                 │
+│  - Deepgram (speech-to-text)                       │
+│  - Custom fine-tuned models (meeting intelligence) │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│          Data & Governance Layer                    │
+│  - Unified data lake (AWS S3)                      │
+│  - Vector embeddings (Pinecone/Weaviate)          │
+│  - Access control & encryption                     │
+│  - Audit logs & compliance reporting               │
+└─────────────────────────────────────────────────────┘</div>
+
+            <h3>Infrastructure Evolution Timeline</h3>
+
+            <div class="phase-card">
+                <h4>Q4 2025 - Q2 2026: Foundation Layer</h4>
+
+                <p><strong>Capabilities:</strong></p>
+                <ul>
+                    <li>OpenAI GPT-4 Turbo API integration</li>
+                    <li>Deepgram speech-to-text (Whisper-based)</li>
+                    <li>Basic context management (per-user, per-session)</li>
+                    <li>AWS infrastructure (EC2, S3, RDS)</li>
+                    <li>Security: SSL/TLS, at-rest encryption</li>
+                </ul>
+
+                <p><strong>Products Enabled:</strong></p>
+                <ul>
+                    <li>Ninja Notes (beta → production)</li>
+                    <li>Omni Sales & Service (alpha → beta)</li>
+                </ul>
+
+                <p><strong>Limitations:</strong></p>
+                <ul>
+                    <li>No cross-product intelligence yet</li>
+                    <li>Manual data pipeline management</li>
+                    <li>Limited customization/fine-tuning</li>
+                </ul>
+            </div>
+
+            <div class="phase-card">
+                <h4>Q3 2026 - Q2 2027: Intelligence Layer</h4>
+
+                <p><strong>Enhancements:</strong></p>
+                <ul>
+                    <li><strong>Agentic Orchestration</strong>: Multi-agent framework (LangChain/AutoGPT-based)</li>
+                    <li><strong>Context Memory</strong>: Cross-session, cross-product context</li>
+                    <li><strong>Fine-Tuned Models</strong>: Meeting intelligence model (Ninja Notes), field service model (Omni)</li>
+                    <li><strong>Vector Search</strong>: Semantic search across all user data</li>
+                    <li><strong>Real-Time Processing</strong>: WebSocket support for live transcription</li>
+                </ul>
+
+                <p><strong>Products Enabled:</strong></p>
+                <ul>
+                    <li>Ninja Notes (enterprise features: meeting intelligence, action items)</li>
+                    <li>Omni (predictive maintenance, intelligent routing)</li>
+                    <li>Sona (prototype → alpha, on-device AI)</li>
+                </ul>
+
+                <p><strong>Compliance:</strong></p>
+                <ul>
+                    <li>SOC 2 Type I (Q2 2026)</li>
+                    <li>ISO 27001 audit prep begins (Q4 2026)</li>
+                    <li>GDPR-compliant data handling</li>
+                </ul>
+            </div>
+
+            <div class="phase-card">
+                <h4>Q3 2027 - Q4 2028: Platform Layer</h4>
+
+                <p><strong>Enhancements:</strong></p>
+                <ul>
+                    <li><strong>Multi-Modal AI</strong>: Vision + voice + text (Sona wearable, Omni kiosks)</li>
+                    <li><strong>Edge AI</strong>: On-device processing for Sona (privacy-first)</li>
+                    <li><strong>API Platform</strong>: Public API for partners/integrations</li>
+                    <li><strong>Auto-Scaling</strong>: Kubernetes-based, handles 100K+ users</li>
+                    <li><strong>Advanced Analytics</strong>: Predictive models, anomaly detection</li>
+                </ul>
+
+                <p><strong>Products Enabled:</strong></p>
+                <ul>
+                    <li>Sona (commercial launch, full multi-modal)</li>
+                    <li>Omni Concierge (beta → production, vision AI for retail)</li>
+                    <li>API Partners (enterprises building on Ninja infrastructure)</li>
+                </ul>
+
+                <p><strong>Compliance:</strong></p>
+                <ul>
+                    <li>SOC 2 Type II (Q2 2027)</li>
+                    <li>ISO 27001 certified (Q4 2027)</li>
+                    <li>EU AI Act compliant (Q2 2028)</li>
+                </ul>
+            </div>
+
+            <h3>Infrastructure Cost Evolution</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Users/Devices</th>
+                        <th>Monthly Infra Cost</th>
+                        <th>Cost per User</th>
+                        <th>% of Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Q4 2025</strong></td>
+                        <td>635</td>
+                        <td>$5K</td>
+                        <td>$7.87</td>
+                        <td>16%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026 (Y1)</strong></td>
+                        <td>10,669</td>
+                        <td>$70K</td>
+                        <td>$6.56</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2027 (Y2)</strong></td>
+                        <td>43,200</td>
+                        <td>$350K</td>
+                        <td>$8.10</td>
+                        <td>29%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2028 (Y3)</strong></td>
+                        <td>108,431</td>
+                        <td>$1.24M</td>
+                        <td>$11.44</td>
+                        <td>44%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Cost Components:</h4>
+            <ul>
+                <li><strong>Cloud Compute</strong>: AWS EC2, Lambda (40% of cost)</li>
+                <li><strong>AI APIs</strong>: OpenAI, Anthropic, Deepgram (35% of cost)</li>
+                <li><strong>Storage & Data</strong>: S3, RDS, vector DB (15% of cost)</li>
+                <li><strong>CDN & Bandwidth</strong>: CloudFront, data transfer (10% of cost)</li>
+            </ul>
+
+            <h4>Optimization Strategy:</h4>
+            <ul>
+                <li><strong>2026</strong>: Negotiate enterprise contracts with OpenAI/Anthropic (30% discount)</li>
+                <li><strong>2027</strong>: Migrate to self-hosted models for commodity tasks (50% API cost reduction)</li>
+                <li><strong>2028</strong>: Edge AI deployment (Sona on-device processing, zero API calls for wearable)</li>
+            </ul>
+
+            <h2 id="compliance">4. Compliance & Certification Timeline</h2>
+
+            <p>Enterprise customers require security and compliance certifications. This is <strong>non-negotiable</strong> for sales.</p>
+
+            <h3>Certification Roadmap</h3>
+
+            <div class="phase-card">
+                <h4>SOC 2 Type I (Target: Q2 2026)</h4>
+
+                <p><strong>Timeline:</strong></p>
+                <ul>
+                    <li><strong>Jan-Feb 2026</strong>: Readiness assessment, gap analysis</li>
+                    <li><strong>Mar-Apr 2026</strong>: Remediation (policies, controls, security hardening)</li>
+                    <li><strong>May-Jun 2026</strong>: Audit execution (vCISO + external auditor)</li>
+                    <li><strong>Jun 30, 2026</strong>: Certification issued</li>
+                </ul>
+
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Information security policies (ISMS)</li>
+                    <li>Access controls (RBAC, MFA, SSO)</li>
+                    <li>Data encryption (at-rest, in-transit)</li>
+                    <li>Incident response plan</li>
+                    <li>Vendor management</li>
+                    <li>Change management</li>
+                    <li>Business continuity/disaster recovery</li>
+                </ul>
+
+                <p><strong>Cost:</strong> $50K (audit + vCISO + Vanta subscription)</p>
+
+                <div class="info-box">
+                    <h4>Impact:</h4>
+                    <ul>
+                        <li><strong>Unlocks</strong>: 60%+ of enterprise buyers require SOC 2</li>
+                        <li><strong>Revenue</strong>: $500K-$1M incremental ARR (enterprise deals)</li>
+                        <li><strong>Competitive</strong>: Differentiator vs. smaller competitors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-card">
+                <h4>ISO 27001 (Target: Q4 2027)</h4>
+
+                <p><strong>Timeline:</strong></p>
+                <ul>
+                    <li><strong>Q4 2026</strong>: Kick-off, ISMS documentation</li>
+                    <li><strong>Q1-Q2 2027</strong>: Implementation, risk assessment, controls</li>
+                    <li><strong>Q3 2027</strong>: Internal audit, management review</li>
+                    <li><strong>Q4 2027</strong>: Certification audit, certificate issued</li>
+                </ul>
+
+                <p><strong>Requirements (build on SOC 2):</strong></p>
+                <ul>
+                    <li>Risk management framework</li>
+                    <li>Asset management</li>
+                    <li>Supplier security</li>
+                    <li>Physical security (data centers)</li>
+                    <li>Human resources security</li>
+                    <li>Cryptographic controls</li>
+                </ul>
+
+                <p><strong>Cost:</strong> $75K (certification body + consulting)</p>
+
+                <div class="info-box">
+                    <h4>Impact:</h4>
+                    <ul>
+                        <li><strong>Unlocks</strong>: International expansion (EMEA requires ISO)</li>
+                        <li><strong>Revenue</strong>: $2M-$5M incremental ARR (European customers)</li>
+                        <li><strong>Competitive</strong>: Enterprise-grade credibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-card">
+                <h4>GDPR Compliance (Ongoing, Critical by Q2 2026)</h4>
+
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Data Processing Agreements (DPAs) with customers</li>
+                    <li>Right to erasure, data portability</li>
+                    <li>Consent management</li>
+                    <li>Data breach notification (<72 hours)</li>
+                    <li>Privacy by design</li>
+                </ul>
+
+                <p><strong>Cost:</strong> $20K (legal + privacy tools)</p>
+
+                <div class="warning-box">
+                    <h4>Impact:</h4>
+                    <ul>
+                        <li><strong>Required</strong>: Cannot sell in EU without GDPR compliance</li>
+                        <li><strong>Risk</strong>: Fines up to €20M or 4% of revenue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-card">
+                <h4>EU AI Act Compliance (Target: Q2 2028)</h4>
+
+                <p><strong>Timeline:</strong></p>
+                <ul>
+                    <li><strong>Q3 2027</strong>: Impact assessment, classification (general purpose AI)</li>
+                    <li><strong>Q4 2027</strong>: Documentation, transparency requirements</li>
+                    <li><strong>Q1 2028</strong>: Risk management, testing</li>
+                    <li><strong>Q2 2028</strong>: Compliance declaration</li>
+                </ul>
+
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>AI model documentation (training data, capabilities, limitations)</li>
+                    <li>Risk assessment for AI use cases</li>
+                    <li>Transparency (users must know they're interacting with AI)</li>
+                    <li>Human oversight mechanisms</li>
+                    <li>Copyright compliance (training data)</li>
+                </ul>
+
+                <p><strong>Cost:</strong> $60K (legal + compliance consulting)</p>
+
+                <div class="info-box">
+                    <h4>Impact:</h4>
+                    <ul>
+                        <li><strong>Required</strong>: EU market access (August 2, 2025 deadline for GPAI)</li>
+                        <li><strong>Competitive</strong>: Few AI startups compliant by 2028</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Compliance as Competitive Advantage</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Certification</th>
+                        <th>When</th>
+                        <th>Competitive Impact</th>
+                        <th>Customers Unlocked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SOC 2 Type I</strong></td>
+                        <td>Q2 2026</td>
+                        <td>70% of competitors lack it</td>
+                        <td>Enterprise (500-5K employees)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SOC 2 Type II</strong></td>
+                        <td>Q2 2027</td>
+                        <td>85% of competitors lack it</td>
+                        <td>Large enterprise (5K+ employees)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27001</strong></td>
+                        <td>Q4 2027</td>
+                        <td>90% of competitors lack it</td>
+                        <td>International (EMEA, APAC)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EU AI Act</strong></td>
+                        <td>Q2 2028</td>
+                        <td>95% of AI startups non-compliant</td>
+                        <td>EU public sector, regulated industries</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Strategic Value:</h4>
+                <ul>
+                    <li><strong>Barrier to Entry</strong>: 12-18 months + $200K+ for competitors to replicate</li>
+                    <li><strong>Sales Cycle Reduction</strong>: 50% faster (no security review bottleneck)</li>
+                    <li><strong>Premium Pricing</strong>: 20-30% higher ASP for compliant solutions</li>
+                </ul>
+            </div>
+
+            <h2 id="team">5. Team Scaling & Key Hires</h2>
+
+            <h3>Headcount Evolution</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Q4 2025</th>
+                        <th>2026 (Y1)</th>
+                        <th>2027 (Y2)</th>
+                        <th>2028 (Y3)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Executive/Leadership</strong></td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product & Engineering</strong></td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>18</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sales & Marketing</strong></td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>13</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Services Delivery</strong></td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer Success</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td><strong>G&A</strong></td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>10</td>
+                    </tr>
+                    <tr style="background: #e8f4f8; font-weight: bold;">
+                        <td><strong>Total Headcount</strong></td>
+                        <td><strong>11</strong></td>
+                        <td><strong>28</strong></td>
+                        <td><strong>55</strong></td>
+                        <td><strong>98</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Critical Hires Timeline</h3>
+
+            <div class="phase-card">
+                <h4>Q4 2025 (Post-Funding, Months 0-3)</h4>
+
+                <p><strong>Immediate Hires (within 30 days):</strong></p>
+                <ol>
+                    <li><strong>CFO</strong> ($200K fully loaded) - Financial planning, investor reporting, Series A prep</li>
+                    <li><strong>2x Account Executives</strong> ($211K each at quota) - Enterprise sales for Ninja Notes and Omni</li>
+                    <li><strong>2x India Engineers</strong> ($44K each) - Ninja Notes scaling, Omni beta development</li>
+                </ol>
+
+                <p><strong>Month 2-3 Hires:</strong></p>
+                <ol start="4">
+                    <li><strong>1x US Senior Engineer</strong> ($216K) - Architecture lead, mentors India team</li>
+                    <li><strong>1x Channel/Partner Manager</strong> ($140K) - HP partnership scaling</li>
+                    <li><strong>2x Project Managers</strong> ($131K each) - Services delivery for Omni implementations</li>
+                    <li><strong>1x Customer Success Manager</strong> ($123K) - Onboarding, retention, upsell</li>
+                    <li><strong>1x VP Operations</strong> ($238K) - Oversees all non-product operations</li>
+                </ol>
+
+                <p><strong>Total Q4 2025 Hires</strong>: 11 FTEs, $1.28M annual payroll (~$320K quarterly)</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>2026 (Year 1, Foundation)</h4>
+
+                <p><strong>Q1 2026:</strong></p>
+                <ul>
+                    <li>1x Product Manager (Ninja Notes features)</li>
+                    <li>1x India Engineer (Omni Service development)</li>
+                    <li>1x Marketing Manager (content, demand gen)</li>
+                    <li>1x Account Executive (Omni sales)</li>
+                    <li>1x Consultant (services - AI strategy)</li>
+                </ul>
+
+                <p><strong>Q2 2026:</strong></p>
+                <ul>
+                    <li>1x India Engineer (Sona prototype)</li>
+                    <li>1x Project Manager (services scaling)</li>
+                    <li>1x SDR/BDR (lead generation)</li>
+                    <li>1x Finance/Accounting Analyst (CFO support)</li>
+                </ul>
+
+                <p><strong>Q3 2026:</strong></p>
+                <ul>
+                    <li>1x Product Manager (Omni products)</li>
+                    <li>1x US Senior Engineer (Sona hardware integration)</li>
+                    <li>1x Account Executive (enterprise sales)</li>
+                    <li>1x Support Engineer (customer success)</li>
+                </ul>
+
+                <p><strong>Q4 2026:</strong></p>
+                <ul>
+                    <li>1x India Engineer (scaling team for 2027 launches)</li>
+                    <li>1x Designer (UX/UI for all products)</li>
+                    <li>1x Legal/Compliance Specialist (ISO prep)</li>
+                </ul>
+
+                <p><strong>Total 2026 Headcount</strong>: 28 FTEs (+17 from Q4 2025)</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>2027 (Year 2, Expansion)</h4>
+
+                <p><strong>Key Leadership Hires:</strong></p>
+                <ul>
+                    <li><strong>Q1 2027: CTO</strong> ($300K) - Technical leadership, architecture, security</li>
+                    <li><strong>Q3 2027: CMO</strong> ($280K) - Brand, demand gen, international marketing</li>
+                </ul>
+
+                <p><strong>Functional Scaling:</strong></p>
+                <ul>
+                    <li><strong>Product & Engineering</strong>: +9 FTEs (4 PMs, 2 US engineers, 3 India engineers)</li>
+                    <li><strong>Sales & Marketing</strong>: +7 FTEs (4 AEs, 2 SDRs, 1 marketing)</li>
+                    <li><strong>Services</strong>: +5 FTEs (3 PMs, 2 consultants)</li>
+                    <li><strong>Customer Success</strong>: +3 FTEs (2 CS managers, 1 support engineer)</li>
+                    <li><strong>G&A</strong>: +2 FTEs (operations, HR)</li>
+                </ul>
+
+                <p><strong>Total 2027 Headcount</strong>: 55 FTEs (+27 from 2026)</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>2028 (Year 3, Scale)</h4>
+
+                <p><strong>Key Leadership Hires:</strong></p>
+                <ul>
+                    <li><strong>Q1 2028: VP Sales</strong> ($280K) - Sales leadership, team scaling, quotas</li>
+                    <li><strong>Q2 2028: VP Engineering</strong> ($300K) - Engineering org leadership, 30+ engineer team</li>
+                    <li><strong>Q3 2028: VP Services</strong> ($250K) - Services business line P&L owner</li>
+                </ul>
+
+                <p><strong>Functional Scaling (Series A capital deployed):</strong></p>
+                <ul>
+                    <li><strong>Product & Engineering</strong>: +14 FTEs (international teams, mobile, API platform)</li>
+                    <li><strong>Sales & Marketing</strong>: +12 FTEs (international sales, 10+ AEs)</li>
+                    <li><strong>Services</strong>: +6 FTEs (specialized consultants, project managers)</li>
+                    <li><strong>Customer Success</strong>: +5 FTEs (enterprise CSMs, support scaling)</li>
+                    <li><strong>G&A</strong>: +4 FTEs (controller, HR, IT, operations)</li>
+                </ul>
+
+                <p><strong>Total 2028 Headcount</strong>: 98 FTEs (+43 from 2027)</p>
+            </div>
+
+            <h3>Hiring Strategy & Risk Mitigation</h3>
+
+            <div class="info-box">
+                <h4>Remote-First Model:</h4>
+                <ul>
+                    <li><strong>Advantage</strong>: Access global talent, no geographic constraints</li>
+                    <li><strong>Cost Savings</strong>: India engineers 80% cheaper than US ($44K vs. $216K)</li>
+                    <li><strong>Challenge</strong>: Time zone coordination, cultural alignment</li>
+                </ul>
+            </div>
+
+            <h4>India Offshore Team:</h4>
+            <ul>
+                <li><strong>2026</strong>: 3 engineers</li>
+                <li><strong>2027</strong>: 6 engineers (50% of engineering team)</li>
+                <li><strong>2028</strong>: 9 engineers (28% of engineering team, senior roles in US)</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Hiring Velocity Risk:</h4>
+                <ul>
+                    <li><strong>2027</strong>: +27 hires (2.25 hires/month)</li>
+                    <li><strong>2028</strong>: +43 hires (3.6 hires/month)</li>
+                    <li><strong>Mitigation</strong>: Recruiting agency partnerships, employee referral bonuses ($5K-$10K)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Key Person Risk:</h4>
+                <ul>
+                    <li><strong>Bo Thompson (CEO)</strong>: Business development, partnerships, fundraising</li>
+                    <li><strong>Dale Johnson (CPO)</strong>: Product strategy, HP relationship, enterprise credibility</li>
+                    <li><strong>Mitigation</strong>: Key person insurance, strong #2s (CTO, CFO, VP Sales)</li>
+                </ul>
+            </div>
+
+            <h2 id="dependencies">6. Cross-Product Dependencies</h2>
+
+            <p>Products share infrastructure, customers, and go-to-market motion. Sequencing matters.</p>
+
+            <h3>Product Launch Sequence</h3>
+
+            <div class="code-block">2025 Q4    2026         2027         2028
+   │         │            │            │
+   ├─────────┼────────────┼────────────┤
+   │         │            │            │
+Ninja Notes ████████████████████████████  (Beta → Production → Scale)
+   │         │            │            │
+Omni S&S    ███████████████████████████  (Alpha → Beta → Prod → Scale)
+   │         │            │            │
+Sona        ───────██████████████████    (Proto → Alpha → Beta → Prod)
+   │         │            │            │
+Omni Concierge ─────────────████████    (Concept → Alpha → Beta → Prod)
+   │         │            │            │</div>
+
+            <h3>Dependency Matrix</h3>
+
+            <div class="phase-card">
+                <h4>Ninja Notes (Foundation Product)</h4>
+
+                <p><strong>Depends On:</strong></p>
+                <ul>
+                    <li>Shared AI infrastructure (speech-to-text, NLP, context management)</li>
+                    <li>SOC 2 Type I (enterprise sales blocker)</li>
+                    <li>Channel partnerships (HP, resellers)</li>
+                </ul>
+
+                <p><strong>Enables:</strong></p>
+                <ul>
+                    <li><strong>Sona</strong>: Meeting intelligence algorithm reuse</li>
+                    <li><strong>Omni Service</strong>: Voice interaction model</li>
+                    <li><strong>Cash Flow</strong>: Fastest to revenue, funds other products</li>
+                </ul>
+
+                <p><strong>Priority</strong>: <span style="color: #d63031; font-weight: bold;">HIGHEST</span> - All other products depend on Ninja Notes' success</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>Omni Sales & Service (Enterprise Product)</h4>
+
+                <p><strong>Depends On:</strong></p>
+                <ul>
+                    <li>Ninja Notes' AI engine (voice processing)</li>
+                    <li>Services team (implementation support required)</li>
+                    <li>SOC 2 Type I (enterprise blocker)</li>
+                    <li>Field sales team (direct sales motion)</li>
+                </ul>
+
+                <p><strong>Enables:</strong></p>
+                <ul>
+                    <li><strong>High ASP customers</strong>: $50K+ ACV, cross-sell to Ninja Notes</li>
+                    <li><strong>Services revenue</strong>: Implementation projects ($25K-$50K)</li>
+                    <li><strong>Enterprise credibility</strong>: F500 logos</li>
+                </ul>
+
+                <p><strong>Priority</strong>: <span style="color: #fdcb6e; font-weight: bold;">HIGH</span> - High-value, but longer sales cycle than Ninja Notes</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>Sona (Hardware Product)</h4>
+
+                <p><strong>Depends On:</strong></p>
+                <ul>
+                    <li>Ninja Notes' meeting intelligence (algorithm reuse)</li>
+                    <li>Hardware supply chain (6-12 month lead times)</li>
+                    <li>Omni's field service model (wearable use case validation)</li>
+                    <li>Series A funding (capital intensive: $500K-$1M inventory)</li>
+                </ul>
+
+                <p><strong>Enables:</strong></p>
+                <ul>
+                    <li><strong>Product differentiation</strong>: No direct competitor with this ecosystem</li>
+                    <li><strong>Wearable market</strong>: $15B TAM, 40% CAGR</li>
+                    <li><strong>Cross-sell</strong>: Sona users become Ninja Notes users</li>
+                </ul>
+
+                <p><strong>Priority</strong>: <span style="color: #74b9ff; font-weight: bold;">MEDIUM</span> - Defer to Q2 2027 if capital constrained</p>
+            </div>
+
+            <div class="phase-card">
+                <h4>Omni Concierge (Niche Product)</h4>
+
+                <p><strong>Depends On:</strong></p>
+                <ul>
+                    <li>Omni Sales/Service infrastructure (kiosk hardware, voice AI)</li>
+                    <li>Multi-modal AI (vision + voice, not available until Q3 2027)</li>
+                    <li>Event/retail partnerships (go-to-market channel)</li>
+                </ul>
+
+                <p><strong>Enables:</strong></p>
+                <ul>
+                    <li><strong>Use case expansion</strong>: Retail, events, hospitality</li>
+                    <li><strong>Usage-based revenue</strong>: $7.50/talk hour (recurring)</li>
+                    <li><strong>Brand awareness</strong>: High-visibility deployments (conferences, hotels)</li>
+                </ul>
+
+                <p><strong>Priority</strong>: <span style="color: #b2bec3; font-weight: bold;">LOW</span> - Launch after Sona, focus on core products first</p>
+            </div>
+
+            <h3>Cross-Product Intelligence (Ecosystem Value)</h3>
+
+            <div class="code-block">Ninja Notes (meeting data) 
+   ↓
+Learns: Customer needs, product mentions, action items
+   ↓
+Omni Service (field technician)
+   ↓
+Learns: Equipment issues, resolution patterns, parts needs
+   ↓
+Sona (wearable assistant)
+   ↓
+Learns: User preferences, common queries, context patterns
+   ↓
+ALL PRODUCTS GET SMARTER → Better recommendations, lower support costs</div>
+
+            <div class="highlight-box">
+                <h4>Ecosystem Metrics (Target by 2028):</h4>
+                <ul>
+                    <li><strong>Multi-product customers</strong>: 30%+ use 2+ products</li>
+                    <li><strong>Cross-sell rate</strong>: 25% of Ninja Notes customers adopt Omni within 12 months</li>
+                    <li><strong>Net Revenue Retention</strong>: 135%+ (expansion revenue driven by cross-sell)</li>
+                </ul>
+            </div>
+
+            <h2 id="risks">7. Risk Factors & Contingencies</h2>
+
+            <h3>Financial Risks</h3>
+
+            <div class="warning-box">
+                <h4>Risk 1: Runway Shortfall (Q2 2026)</h4>
+
+                <p><strong>Probability</strong>: 50% (High)<br>
+                <strong>Impact</strong>: Critical (company could run out of cash)</p>
+
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>Revenue ramps slower than projected ($800K vs. $1.2M in Q1-Q2 2026)</li>
+                    <li>Burn rate exceeds $200K/month</li>
+                    <li>Cash balance drops below $100K by March 2026</li>
+                </ul>
+            </div>
+
+            <p><strong>Mitigation Options:</strong></p>
+
+            <p><strong>1. Revenue Acceleration:</strong></p>
+            <ul>
+                <li>Push for 3-5 large Omni deals (setup fees = $75K-$125K cash injection)</li>
+                <li>HP partnership delivers 15% of users (vs. 10% modeled)</li>
+                <li>Prepay incentives (25% discount for annual vs. monthly)</li>
+            </ul>
+
+            <p><strong>2. Cost Controls:</strong></p>
+            <ul>
+                <li>Defer 3 hires from Q1 to Q3 2026 (save $120K)</li>
+                <li>Reduce marketing spend by 30% (save $50K)</li>
+                <li>Negotiate vendor payment terms (Net 60 vs. Net 30)</li>
+            </ul>
+
+            <p><strong>3. Bridge Financing:</strong></p>
+            <ul>
+                <li><strong>Amount</strong>: $500K-$750K</li>
+                <li><strong>Source</strong>: Existing seed investors OR venture debt</li>
+                <li><strong>Terms</strong>: Convertible note, $15M cap (50% premium to Seed), 8% interest</li>
+                <li><strong>Timeline</strong>: Close by March 2026 (3 months notice needed)</li>
+            </ul>
+
+            <p><strong>4. Early Series A:</strong></p>
+            <ul>
+                <li>Begin fundraising in Q3 2026 (vs. Q4 2027 planned)</li>
+                <li>Requires: $5M+ ARR, 150%+ growth, strong unit economics</li>
+                <li>Trade-off: Lower valuation (3x ARR vs. 4x ARR)</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Contingency Plan:</h4>
+                <ul>
+                    <li><strong>Trigger</strong>: If cash < $200K by February 2026</li>
+                    <li><strong>Action</strong>: Execute bridge financing OR accelerate Series A</li>
+                    <li><strong>Timeline</strong>: 60-90 days to close bridge, 90-120 days for Series A</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Risk 2: HP Partnership Underperforms</h4>
+
+                <p><strong>Probability</strong>: 40% (Medium)<br>
+                <strong>Impact</strong>: Medium (30% of revenue plan depends on HP)</p>
+
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>HP delivers 5% of users (vs. 30% modeled by 2028)</li>
+                    <li>Channel economics worse than expected (HP wants 50% vs. 40% revenue share)</li>
+                    <li>HP sales team doesn't prioritize Ninja Notes</li>
+                </ul>
+            </div>
+
+            <p><strong>Mitigation:</strong></p>
+
+            <p><strong>1. Diversify Channels:</strong></p>
+            <ul>
+                <li>Recruit 10-15 reseller partners (VAR, MSP, system integrators)</li>
+                <li>Target: 40% of users from reseller channel (vs. 30% HP)</li>
+                <li>Incentive: 30% margin for resellers (vs. 40% for HP)</li>
+            </ul>
+
+            <p><strong>2. Direct Sales Acceleration:</strong></p>
+            <ul>
+                <li>Hire 2 additional AEs in Q2 2026 (vs. Q3 planned)</li>
+                <li>Product-led growth (PLG) focus: Freemium funnel optimization</li>
+                <li>Viral mechanics: Invite teammates, meeting sharing</li>
+            </ul>
+
+            <p><strong>3. Alternative OEM Partnerships:</strong></p>
+            <ul>
+                <li>Dell, Lenovo, Microsoft (explore Q2-Q3 2026)</li>
+                <li>Lower revenue share required (20-30% vs. 40% for HP)</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Contingency Plan:</h4>
+                <ul>
+                    <li><strong>Trigger</strong>: If HP < 10% of users by Q2 2026</li>
+                    <li><strong>Action</strong>: Accelerate direct sales + reseller recruitment</li>
+                    <li><strong>Timeline</strong>: 3 months to build alternative channel</li>
+                </ul>
+            </div>
+
+            <h3>Market & Competition Risks</h3>
+
+            <div class="warning-box">
+                <h4>Risk 3: Microsoft/Google Bundles Competitive Features</h4>
+
+                <p><strong>Probability</strong>: 70% (High)<br>
+                <strong>Impact</strong>: Medium (pricing pressure, differentiation challenge)</p>
+
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>Microsoft Teams adds AI meeting notes (free with Teams Premium)</li>
+                    <li>Google Workspace adds AI transcription (free with Workspace)</li>
+                    <li>Enterprise customers choose "good enough" bundled solution</li>
+                </ul>
+            </div>
+
+            <p><strong>Mitigation:</strong></p>
+
+            <p><strong>1. Enterprise-Grade Differentiation:</strong></p>
+            <ul>
+                <li>SOC 2, ISO 27001, EU AI Act (Microsoft/Google not compliant for AI features)</li>
+                <li>Deeper features: Action item tracking, CRM integration, multi-product ecosystem</li>
+                <li>Vertical-specific models (healthcare, construction, financial services)</li>
+            </ul>
+
+            <p><strong>2. Integrations Strategy:</strong></p>
+            <ul>
+                <li>"Better together" with Microsoft/Google (not "instead of")</li>
+                <li>Integrate with Teams, Workspace (data flows both ways)</li>
+                <li>Position as "enterprise layer on top of basic transcription"</li>
+            </ul>
+
+            <p><strong>3. Pricing Strategy:</strong></p>
+            <ul>
+                <li>$18-$35/user vs. $0 (Teams/Workspace) → Value-based pricing</li>
+                <li>Bundle discount: Ninja Notes + Omni = 20% off</li>
+                <li>Free tier: Compete with free options, upsell to paid</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Contingency Plan:</h4>
+                <ul>
+                    <li><strong>Trigger</strong>: If Microsoft/Google launches competitive features</li>
+                    <li><strong>Action</strong>: Accelerate enterprise features, emphasize compliance</li>
+                    <li><strong>Timeline</strong>: 3-6 months to adjust positioning</li>
+                </ul>
+            </div>
+
+            <h3>Execution Risks</h3>
+
+            <div class="warning-box">
+                <h4>Risk 4: Product Development Delays</h4>
+
+                <p><strong>Probability</strong>: 45% (Medium-High)<br>
+                <strong>Impact</strong>: Medium (revenue delays, missed milestones)</p>
+
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>Sona hardware development takes 6 months longer (supply chain, manufacturing)</li>
+                    <li>Omni Service beta delayed (integration complexity)</li>
+                    <li>Engineering team can't keep pace with 5 products + shared infrastructure</li>
+                </ul>
+            </div>
+
+            <p><strong>Mitigation:</strong></p>
+
+            <p><strong>1. Focus & Sequencing:</strong></p>
+            <ul>
+                <li><strong>Priority 1</strong>: Ninja Notes (fastest to revenue, simplest)</li>
+                <li><strong>Priority 2</strong>: Omni Sales/Service (high ASP, proven demand)</li>
+                <li><strong>Priority 3</strong>: Sona (defer to Q2 2027 if needed)</li>
+                <li><strong>Priority 4</strong>: Omni Concierge (launch only if Priorities 1-3 on track)</li>
+            </ul>
+
+            <p><strong>2. Reusable Infrastructure:</strong></p>
+            <ul>
+                <li>Shared AI layer reduces duplication (60% faster development)</li>
+                <li>Component library: Authentication, billing, admin, analytics</li>
+                <li>Reference architecture: Copy-paste for new products</li>
+            </ul>
+
+            <p><strong>3. Outsource Non-Core:</strong></p>
+            <ul>
+                <li>Hardware design (Sona): Partner with contract manufacturer</li>
+                <li>Mobile apps: Contract development team (India)</li>
+                <li>Integrations: Partner ecosystem (Zapier, Make, n8n)</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Contingency Plan:</h4>
+                <ul>
+                    <li><strong>Trigger</strong>: If Sona delayed beyond Q2 2027</li>
+                    <li><strong>Action</strong>: Cancel Sona, reallocate resources to Ninja Notes + Omni</li>
+                    <li><strong>Timeline</strong>: Decision point Q4 2026 (6 months before Sona launch)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Risk 5: Key Person Dependency (Bo, Dale)</h4>
+
+                <p><strong>Probability</strong>: 25% (Low-Medium)<br>
+                <strong>Impact</strong>: High (partnerships, fundraising, product strategy)</p>
+
+                <p><strong>Scenario:</strong></p>
+                <ul>
+                    <li>Bo or Dale unavailable (health, personal reasons)</li>
+                    <li>HP partnership stalls without Dale</li>
+                    <li>Fundraising stalls without Bo</li>
+                </ul>
+            </div>
+
+            <p><strong>Mitigation:</strong></p>
+
+            <p><strong>1. Leadership Succession:</strong></p>
+            <ul>
+                <li><strong>CTO hire (Q1 2027)</strong>: Technical leadership backup for Dale</li>
+                <li><strong>VP Sales hire (Q1 2028)</strong>: Sales/partnerships backup for Bo</li>
+                <li><strong>Document relationships</strong>: Dale introduces team to HP contacts</li>
+            </ul>
+
+            <p><strong>2. Key Person Insurance:</strong></p>
+            <ul>
+                <li>$5M policy on Bo, $5M policy on Dale</li>
+                <li>Proceeds cover 12 months runway + recruiter fees</li>
+            </ul>
+
+            <p><strong>3. Board Oversight:</strong></p>
+            <ul>
+                <li>Board actively involved in fundraising (not just Bo)</li>
+                <li>Board relationships with HP (not just Dale)</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Contingency Plan:</h4>
+                <ul>
+                    <li><strong>Trigger</strong>: If key person unavailable >30 days</li>
+                    <li><strong>Action</strong>: Promote #2, engage board, hire interim executive</li>
+                    <li><strong>Timeline</strong>: 60-90 days to stabilize</li>
+                </ul>
+            </div>
+
+            <h2>Conclusion</h2>
+
+            <p>This Master Timeline serves as the <strong>foundation for all product roadmaps</strong>. Key takeaways:</p>
+
+            <div class="highlight-box">
+                <h4>Key Takeaways:</h4>
+                <ol>
+                    <li><strong>Phased Approach</strong>: Foundation (2026) → Expansion (2027) → Scale (2028)</li>
+                    <li><strong>Financial Discipline</strong>: 18-month runway, cash flow positive Q4 2026, Series A Q4 2027</li>
+                    <li><strong>Shared Infrastructure</strong>: 60% faster development, unified compliance, cross-product intelligence</li>
+                    <li><strong>Team Scaling</strong>: 11 → 28 → 55 → 98 FTEs, critical hires identified</li>
+                    <li><strong>Risk Management</strong>: 5 major risks identified, mitigation plans in place</li>
+                </ol>
+            </div>
+
+            <h3>Next Steps:</h3>
+            <ul>
+                <li>Use this timeline to build product-specific roadmaps</li>
+                <li>Ensure all product milestones align with company-level milestones</li>
+                <li>Review quarterly, update based on actuals vs. plan</li>
+            </ul>
+
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="classification">
+                    CONFIDENTIAL - For Executive Team & Investor Review
+                </div>
+                <p style="margin-top: 20px;"><strong>Last Updated:</strong> January 2025</p>
+                <p><strong>Next Review:</strong> Q2 2026 (post-funding close)</p>
+                <p><strong>Document Owners:</strong> Bo Thompson (CEO), Dale Johnson (CPO)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
