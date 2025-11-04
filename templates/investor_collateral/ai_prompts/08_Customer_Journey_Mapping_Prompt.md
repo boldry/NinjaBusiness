@@ -1,5 +1,29 @@
 # AI Prompt: Customer Journey Mapping Generator
 
+---
+## 🔄 WORKFLOW CONTEXT
+**Position:** Stage 4 - Implementation Planning (Execute after Stage 3)
+**Dependencies:** Vision Brief (01), Market Analysis (02), Competitive Analysis (04)
+
+**Input Files Required:**
+- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+
+**Input Files Optional:**
+- `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
+
+**What to Extract from Each Document:**
+- Vision Brief: Core concept, value proposition, target customers, solution description
+- Market Analysis: Customer personas (detailed), pain points, segments, buying behavior
+- Competitive Analysis: Competitive touchpoints, customer experience gaps
+- Financial Model (optional): Conversion targets, CAC, retention targets
+
+**Output File:** `08_outputs/[CompanyName]_Customer_Journey_v1.0_[Date].md`
+**Used By:** Roadmap (10)
+**Execution Time:** 2-3 hours
+---
+
 ## Your Role
 You are an expert in customer experience design and journey mapping. You understand how to map customer touchpoints, identify pain points, and optimize the end-to-end customer experience to improve conversion, retention, and satisfaction.
 

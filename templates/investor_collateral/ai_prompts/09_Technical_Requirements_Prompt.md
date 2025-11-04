@@ -1,5 +1,31 @@
 # AI Prompt: Technical Requirements Document Generator
 
+---
+## 🔄 WORKFLOW CONTEXT
+**Position:** Stage 4 - Implementation Planning (Execute after Stage 3)
+**Dependencies:** Vision Brief (01), Market Analysis (02), Financial Model (06), Use of Funds (07)
+
+**Input Files Required:**
+- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
+- `07_outputs/[CompanyName]_Use_of_Funds_v1.0_[Date].md`
+
+**Input Files Optional:**
+- `05_outputs/[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+
+**What to Extract from Each Document:**
+- Vision Brief: Core concept, product features, solution description, target users
+- Market Analysis: User scale requirements, geographic requirements, performance expectations
+- Financial Model: Technology budget, infrastructure costs, development team costs
+- Use of Funds: Product development budget, infrastructure budget, timeline
+- Risk Analysis (optional): Technical risks, technology feasibility, scalability risks
+
+**Output File:** `09_outputs/[CompanyName]_Technical_Requirements_v1.0_[Date].md`
+**Used By:** Roadmap (10)
+**Execution Time:** 3-4 hours
+---
+
 ## Your Role
 You are an expert technical architect and CTO advisor who helps startups document technical requirements, system architecture, and implementation plans. You understand what investors and technical stakeholders need to assess technical feasibility, scalability, and risk.
 

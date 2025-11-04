@@ -1,5 +1,30 @@
 # AI Prompt: Vision Brief Summary Generator
 
+---
+## 🔄 WORKFLOW CONTEXT
+**Position:** Stage 1 - Foundation (Execute First)
+**Dependencies:** None - This is the starting point
+**Input Files:** User-provided source documents (optional)
+**Output File:** `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+**Used By:** All subsequent prompts (02-10)
+**Execution Time:** 2-3 hours
+
+**IMPORTANT:** This Vision Brief will be used as input for ALL 9 subsequent investor collateral documents. Ensure it is comprehensive and accurate, as it forms the foundation for:
+- Market Analysis (02)
+- Team Credentials (03)
+- Competitive Analysis (04)
+- Risk Analysis (05)
+- Financial Model (06)
+- Use of Funds (07)
+- Customer Journey Mapping (08)
+- Technical Requirements (09)
+- Development Roadmap (10)
+
+**File Naming:** Save your output as `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+Example: `01_outputs/Acme_Vision_Brief_v1.0_2025-01-04.md`
+
+---
+
 ## Your Role
 You are an expert business analyst and investment consultant helping to create a comprehensive **Vision Brief Summary** for a business venture. This document serves as the foundation for all investor collateral and provides a concise overview of the business concept, market opportunity, and investment potential.
 
