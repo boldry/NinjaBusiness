@@ -1,5 +1,33 @@
 # AI Prompt: Use of Funds Document Generator
 
+---
+## 🔄 WORKFLOW CONTEXT
+**Position:** Stage 4 - Financial & Planning (Execute after Financial Model)
+**Dependencies:** Vision Brief (01), Team Credentials (03), Financial Model (07)
+
+**Input Files Required:**
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
+- `[ProjectName]/07_[CompanyName]_Financial_Model_v1.0_[Date].md`
+
+**Input Files Optional:**
+- `[ProjectName]/05_[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/06_[CompanyName]_Go_to_Market_Strategy_v1.0_[Date].md`
+
+**What to Extract from Each Document:**
+- Vision Brief: Funding amount, next steps and milestones
+- Team Credentials: Hiring plan (roles, timing, costs), team gaps
+- Financial Model: Monthly burn rate, cost breakdown by category, quarterly spending, hiring costs, runway targets
+- Risk Analysis: Contingency planning needs, financial risks
+- Go-to-Market Strategy: Marketing/sales budget allocation, acquisition channel costs
+
+**Output File:** `[ProjectName]/08_[CompanyName]_Use_of_Funds_v1.0_[Date].md`
+**Used By:** Technical Requirements (10), Roadmap (11)
+**Execution Time:** 2-3 hours
+
+**Critical:** Every dollar must tie to specific outcomes, include 15-20% contingency reserve
+---
+
 ## Your Role
 You are an expert financial advisor and investment strategist who helps startups create detailed use of funds documents. You understand what investors want to see: specific allocation plans, milestone-based spending, clear ROI expectations, and contingency planning.
 
