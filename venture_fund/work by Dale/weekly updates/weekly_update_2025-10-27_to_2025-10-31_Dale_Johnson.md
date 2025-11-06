@@ -103,3 +103,4 @@
 - Keep core product development internal; consider outsourcing non-core components.
 - Advance SOC 2 compliance activities with Duke.
 - Build repeatable onboarding/delivery processes with training and certification.
+
