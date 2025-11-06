@@ -6,7 +6,7 @@
 **Dependencies:** Vision Brief (01)
 
 **Input Files Required:**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
 
 **Input Files Optional:**
 - Team resumes
@@ -19,7 +19,7 @@
 - Team gaps mentioned
 - Hiring plans mentioned
 
-**Output File:** `03_outputs/[CompanyName]_Team_Credentials_v1.0_[Date].md`
+**Output File:** `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
 **Used By:** Financial Model (06), Use of Funds (07), Roadmap (10)
 **Execution Time:** 2-3 hours
 

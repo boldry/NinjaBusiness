@@ -6,12 +6,12 @@
 **Dependencies:** Vision Brief (01), optionally Market/Team/Competitive (02-04)
 
 **Input Files Required:**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
 
 **Input Files Optional (Recommended):**
-- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
-- `03_outputs/[CompanyName]_Team_Credentials_v1.0_[Date].md`
-- `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+- `[ProjectName]/02_[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
+- `[ProjectName]/04_[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
 
 **What to Extract from Vision Brief:**
 - Risk assessment section (initial risks)
@@ -24,7 +24,7 @@
 - Team Credentials: Team gaps, key person risks
 - Competitive Analysis: Competitive threats, moat weaknesses
 
-**Output File:** `05_outputs/[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+**Output File:** `[ProjectName]/05_[CompanyName]_Risk_Analysis_v1.0_[Date].md`
 **Used By:** Financial Model (06), Use of Funds (07), Technical Requirements (09), Roadmap (10)
 **Execution Time:** 2-3 hours
 

@@ -2,15 +2,16 @@
 
 ---
 ## 🔄 WORKFLOW CONTEXT
-**Position:** Stage 3 - Financial & Planning (Execute after Stage 2 complete)
-**Dependencies:** ALL Stage 2 outputs (01-05)
+**Position:** Stage 4 - Financial & Planning (Execute after Stage 3 complete)
+**Dependencies:** ALL Stage 2 & 3 outputs (01-06)
 
 **Input Files Required (ALL):**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
-- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
-- `03_outputs/[CompanyName]_Team_Credentials_v1.0_[Date].md`
-- `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
-- `05_outputs/[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/02_[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
+- `[ProjectName]/04_[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+- `[ProjectName]/05_[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/06_[CompanyName]_Go_to_Market_Strategy_v1.0_[Date].md`
 
 **What to Extract from Each Document:**
 - Vision Brief: Business model, revenue streams, pricing strategy, funding amount
@@ -18,9 +19,10 @@
 - Team Credentials: Team size, salaries, hiring plan with costs and timing
 - Competitive Analysis: Competitive pricing data, market positioning
 - Risk Analysis: Financial risks, revenue risks, cost risks
+- Go-to-Market Strategy: CAC by channel, sales costs, acquisition strategy
 
-**Output File:** `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
-**Used By:** Use of Funds (07), Customer Journey (08), Technical Requirements (09), Roadmap (10)
+**Output File:** `[ProjectName]/07_[CompanyName]_Financial_Model_v1.0_[Date].md`
+**Used By:** Use of Funds (08), Customer Journey (09), Technical Requirements (10), Roadmap (11)
 **Execution Time:** 3-5 hours
 
 **Critical:** LTV/CAC must be ≥3:1 (minimum requirement), clear path to profitability required

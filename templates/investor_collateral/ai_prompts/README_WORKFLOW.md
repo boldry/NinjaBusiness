@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains 10 AI prompts that generate comprehensive investor collateral documents in a sequential, dependency-aware workflow. Each prompt builds on previous outputs to create a complete investment package.
+This directory contains 11 AI prompts that generate comprehensive investor collateral documents in a sequential, dependency-aware workflow. Each prompt builds on previous outputs to create a complete investment package.
 
 ## ⚡ Quick Start - Two Ways to Execute
 
@@ -22,7 +22,7 @@ This directory contains 10 AI prompts that generate comprehensive investor colla
    - Claude handles all dependencies, file tracking, and validation
 
 3. **Get complete package:**
-   - ~25-35 hours over 10-15 days
+   - ~28-40 hours over 12-18 days
    - Built-in review points
    - Pause/resume anytime
    - Quality validation included
@@ -52,13 +52,14 @@ This directory contains 10 AI prompts that generate comprehensive investor colla
 
 1. **Start with 01_Vision_Brief_Prompt.md** - Foundation document
 2. **Execute 02-05 (Research)** - Can run in parallel after #1
-3. **Execute 06-07 (Financial)** - Must run sequentially after #1-5
-4. **Execute 08-09 (Implementation)** - Can run in parallel after #1-7
-5. **Execute 10_Roadmap** - Must run last, requires ALL previous outputs
+3. **Execute 06 (Go-to-Market Strategy)** - Must run after #1, #2, #4
+4. **Execute 07-08 (Financial)** - Must run sequentially after #1-6
+5. **Execute 09-10 (Implementation)** - Can run in parallel after #1-8
+6. **Execute 11_Roadmap** - Must run last, requires ALL previous outputs
 
 #### Expected Timeline
-- **Sequential:** 10-15 days (~25-35 hours)
-- **Parallel (within tiers):** 7-10 days (~25-35 hours)
+- **Sequential:** 12-18 days (~28-40 hours)
+- **Parallel (within tiers):** 8-12 days (~28-40 hours)
 
 📖 **Full Guide:** [WORKFLOW_EXECUTION_GUIDE.md](WORKFLOW_EXECUTION_GUIDE.md)
 
@@ -77,17 +78,18 @@ This directory contains:
 - **WORKFLOW_COMPLETE.md** - Completion summary and status
 - **PROMPT_HEADER_TEMPLATE.md** - Workflow headers reference
 
-### 10 AI Prompts (Execute in Order)
+### 11 AI Prompts (Execute in Order)
 1. **01_Vision_Brief_Prompt.md** - Foundation (no dependencies)
 2. **02_Market_Analysis_Prompt.md** - Research (requires #1)
 3. **03_Team_Credentials_Prompt.md** - Research (requires #1)
 4. **04_Competitive_Analysis_Prompt.md** - Research (requires #1)
 5. **05_Risk_Analysis_Prompt.md** - Research (requires #1, optionally #2-4)
-6. **06_Financial_Model_Prompt.md** - Financial (requires #1-5)
-7. **07_Use_of_Funds_Prompt.md** - Financial (requires #1,3,6)
-8. **08_Customer_Journey_Mapping_Prompt.md** - Implementation (requires #1,2,4,6)
-9. **09_Technical_Requirements_Prompt.md** - Implementation (requires #1,2,6,7)
-10. **10_Roadmap_Prompt.md** - Strategy (requires ALL #1-9)
+6. **06_Go_to_Market_Strategy_Prompt.md** - Go-to-Market (requires #1, #2, #4)
+7. **07_Financial_Model_Prompt.md** - Financial (requires #1-6)
+8. **08_Use_of_Funds_Prompt.md** - Financial (requires #1, #3, #7)
+9. **09_Customer_Journey_Mapping_Prompt.md** - Implementation (requires #1, #2, #4, #6, #7)
+10. **10_Technical_Requirements_Prompt.md** - Implementation (requires #1, #2, #7, #8)
+11. **11_Roadmap_Prompt.md** - Strategy (requires ALL #1-10)
 
 ## File Naming Convention
 
@@ -110,11 +112,12 @@ YourCompany_Investor_Collateral/
 ├── 03_outputs/               # Team Credentials output
 ├── 04_outputs/               # Competitive Analysis output
 ├── 05_outputs/               # Risk Analysis output
-├── 06_outputs/               # Financial Model output
-├── 07_outputs/               # Use of Funds output
-├── 08_outputs/               # Customer Journey output
-├── 09_outputs/               # Technical Requirements output
-└── 10_outputs/               # Roadmap output
+├── 06_outputs/               # Go-to-Market Strategy output
+├── 07_outputs/               # Financial Model output
+├── 08_outputs/               # Use of Funds output
+├── 09_outputs/               # Customer Journey output
+├── 10_outputs/               # Technical Requirements output
+└── 11_outputs/               # Roadmap output
 ```
 
 ## Execution Workflow Diagram
@@ -129,32 +132,35 @@ START
         └─► 04_Competitive        │
         └─► 05_Risk_Analysis      ┘
               │
-              └─► 06_Financial_Model (Sequential)
+              └─► 06_Go_to_Market_Strategy (Sequential)
                     │
-                    └─► 07_Use_of_Funds (Sequential)
+                    └─► 07_Financial_Model (Sequential)
                           │
-                          └─► 08_Customer_Journey  ┐
-                          └─► 09_Technical_Req     ┘ Can run in parallel
+                          └─► 08_Use_of_Funds (Sequential)
                                 │
-                                └─► 10_Roadmap (Final)
+                                └─► 09_Customer_Journey  ┐
+                                └─► 10_Technical_Req     ┘ Can run in parallel
                                       │
-                                      └─► COMPLETE
+                                      └─► 11_Roadmap (Final)
+                                            │
+                                            └─► COMPLETE
 ```
 
 ## File Dependencies Matrix
 
 | Prompt # | Requires Files | Produces | Used By |
 |----------|---------------|----------|---------|
-| 01 | None | Vision_Brief | 02,03,04,05,06,07,08,09,10 |
-| 02 | 01 | Market_Analysis | 06,08,09,10 |
-| 03 | 01 | Team_Credentials | 06,07,10 |
-| 04 | 01 | Competitive_Analysis | 06,08,10 |
-| 05 | 01 (opt: 02,03,04) | Risk_Analysis | 06,07,09,10 |
-| 06 | 01,02,03,04,05 | Financial_Model | 07,08,09,10 |
-| 07 | 01,03,06 (opt: 05) | Use_of_Funds | 09,10 |
-| 08 | 01,02,04 (opt: 06) | Customer_Journey | 10 |
-| 09 | 01,02,06,07 (opt: 05) | Technical_Requirements | 10 |
-| 10 | ALL (01-09) | Roadmap | Final |
+| 01 | None | Vision_Brief | 02,03,04,05,06,07,08,09,10,11 |
+| 02 | 01 | Market_Analysis | 06,07,09,11 |
+| 03 | 01 | Team_Credentials | 06 (opt), 07,08,11 |
+| 04 | 01 | Competitive_Analysis | 06,07,09,11 |
+| 05 | 01 (opt: 02,03,04) | Risk_Analysis | 06 (opt), 07,08,10,11 |
+| 06 | 01,02,04 (opt: 03,05) | Go_to_Market_Strategy | 07,08,09,11 |
+| 07 | 01,02,03,04,05,06 | Financial_Model | 08,09,10,11 |
+| 08 | 01,03,07 (opt: 05,06) | Use_of_Funds | 10,11 |
+| 09 | 01,02,04,06,07 | Customer_Journey | 11 |
+| 10 | 01,02,07,08 (opt: 05) | Technical_Requirements | 11 |
+| 11 | ALL (01-10) | Roadmap | Final |
 
 ## Key Success Criteria
 
@@ -167,7 +173,7 @@ START
 - ✅ Realistic timeline and milestones (Roadmap)
 
 ### Quality Standards
-- ✅ All 10 documents generated
+- ✅ All 11 documents generated
 - ✅ Documents are consistent with each other
 - ✅ Professional quality suitable for investor review
 - ✅ All critical sections completed
@@ -188,7 +194,7 @@ cd YourCompany_Investor_Collateral
 
 # Create output directories
 mkdir 01_outputs 02_outputs 03_outputs 04_outputs 05_outputs
-mkdir 06_outputs 07_outputs 08_outputs 09_outputs 10_outputs
+mkdir 06_outputs 07_outputs 08_outputs 09_outputs 10_outputs 11_outputs
 mkdir source_documents
 
 # Copy your source documents to source_documents/
@@ -255,7 +261,7 @@ Follow the workflow, always providing previous outputs as inputs to subsequent p
 ## Common Use Cases
 
 ### New Venture (Idea Stage)
-Execute all 10 prompts sequentially to create complete investor package from scratch.
+Execute all 11 prompts sequentially to create complete investor package from scratch.
 
 ### Existing Venture (Refining Pitch)
 Start with existing documents as inputs to prompt #1, then refine through the workflow.
@@ -288,11 +294,12 @@ See **WORKFLOW_EXECUTION_GUIDE.md** "Troubleshooting" section for common issues.
 ### By Stage
 - Stage 1 (Foundation): 2-3 hours
 - Stage 2 (Research): 8-12 hours
-- Stage 3 (Financial): 5-8 hours
-- Stage 4 (Implementation): 5-7 hours
-- Stage 5 (Strategy): 3-4 hours
+- Stage 3 (Go-to-Market): 3-4 hours
+- Stage 4 (Financial): 5-8 hours
+- Stage 5 (Implementation): 5-7 hours
+- Stage 6 (Strategy): 3-4 hours
 
-### Total: 23-34 hours over 10-15 days
+### Total: 26-38 hours over 12-18 days
 
 This is a significant investment, but produces institutional-quality investor collateral that can be used for:
 - Fundraising pitches

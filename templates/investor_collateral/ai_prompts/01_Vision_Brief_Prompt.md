@@ -5,7 +5,7 @@
 **Position:** Stage 1 - Foundation (Execute First)
 **Dependencies:** None - This is the starting point
 **Input Files:** User-provided source documents (optional)
-**Output File:** `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+**Output File:** `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
 **Used By:** All subsequent prompts (02-10)
 **Execution Time:** 2-3 hours
 

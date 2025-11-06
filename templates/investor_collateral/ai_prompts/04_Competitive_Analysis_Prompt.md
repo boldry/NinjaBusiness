@@ -6,7 +6,7 @@
 **Dependencies:** Vision Brief (01)
 
 **Input Files Required:**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
 
 **Input Files Optional:**
 - Competitive research documents
@@ -19,7 +19,7 @@
 - Value proposition (to defend)
 - Differentiation points mentioned
 
-**Output File:** `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+**Output File:** `[ProjectName]/04_[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
 **Used By:** Financial Model (06), Customer Journey (08), Roadmap (10)
 **Execution Time:** 3-4 hours
 

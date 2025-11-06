@@ -2,32 +2,34 @@
 
 ---
 ## 🔄 WORKFLOW CONTEXT
-**Position:** Stage 5 - Strategic Roadmap (Execute Last - Requires ALL Previous)
-**Dependencies:** ALL previous outputs (01-09)
+**Position:** Stage 6 - Strategic Roadmap (Execute Last - Requires ALL Previous)
+**Dependencies:** ALL previous outputs (01-10)
 
-**Input Files Required (ALL 9 DOCUMENTS):**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
-- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
-- `03_outputs/[CompanyName]_Team_Credentials_v1.0_[Date].md`
-- `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
-- `05_outputs/[CompanyName]_Risk_Analysis_v1.0_[Date].md`
-- `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
-- `07_outputs/[CompanyName]_Use_of_Funds_v1.0_[Date].md`
-- `08_outputs/[CompanyName]_Customer_Journey_v1.0_[Date].md`
-- `09_outputs/[CompanyName]_Technical_Requirements_v1.0_[Date].md`
+**Input Files Required (ALL 10 DOCUMENTS):**
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/02_[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
+- `[ProjectName]/04_[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+- `[ProjectName]/05_[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/06_[CompanyName]_Go_to_Market_Strategy_v1.0_[Date].md`
+- `[ProjectName]/07_[CompanyName]_Financial_Model_v1.0_[Date].md`
+- `[ProjectName]/08_[CompanyName]_Use_of_Funds_v1.0_[Date].md`
+- `[ProjectName]/09_[CompanyName]_Customer_Journey_v1.0_[Date].md`
+- `[ProjectName]/10_[CompanyName]_Technical_Requirements_v1.0_[Date].md`
 
 **What to Extract from Each Document:**
-- Vision Brief: Product vision, MVP scope, long-term vision
-- Market Analysis: Market readiness, launch timing, competitive pressures
-- Team Credentials: Team capacity, hiring plan, development capabilities
-- Competitive Analysis: Competitive pressures, feature priorities
-- Risk Analysis: Execution risks, technical risks, mitigation strategies
-- Financial Model: Budget by phase, spending timeline, runway
-- Use of Funds: Quarterly spending plan, major milestones, success criteria
-- Customer Journey: Features by journey stage, time-to-value targets
-- Technical Requirements: Development phases, technical milestones, dependencies
+- Vision Brief: Product vision, MVP scope, long-term vision, current stage
+- Market Analysis: Market readiness, launch timing, market windows, competition timeline
+- Team Credentials: Team capacity, hiring plan, team experience, development capabilities
+- Competitive Analysis: Competitive pressures, market entry timing, feature priorities
+- Risk Analysis: Execution risks, technical risks, timeline risks, mitigation strategies
+- Go-to-Market Strategy: Launch plan, acquisition timeline, sales milestones
+- Financial Model: Budget by phase, spending timeline, runway, financial constraints
+- Use of Funds: Quarterly spending plan, major milestones, resource allocation, success criteria
+- Customer Journey: Features by journey stage, onboarding requirements, time-to-value targets
+- Technical Requirements: Development phases, technical milestones, implementation timeline, dependencies
 
-**Output File:** `10_outputs/[CompanyName]_Roadmap_v1.0_[Date].md`
+**Output File:** `[ProjectName]/11_[CompanyName]_Roadmap_v1.0_[Date].md`
 **Used By:** Final investor package (no further documents)
 **Execution Time:** 3-4 hours
 

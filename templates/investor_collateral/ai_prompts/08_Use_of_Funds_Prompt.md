@@ -2,25 +2,27 @@
 
 ---
 ## 🔄 WORKFLOW CONTEXT
-**Position:** Stage 3 - Financial & Planning (Execute after Financial Model)
-**Dependencies:** Vision Brief (01), Team Credentials (03), Financial Model (06)
+**Position:** Stage 4 - Financial & Planning (Execute after Financial Model)
+**Dependencies:** Vision Brief (01), Team Credentials (03), Financial Model (07)
 
 **Input Files Required:**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
-- `03_outputs/[CompanyName]_Team_Credentials_v1.0_[Date].md`
-- `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/03_[CompanyName]_Team_Credentials_v1.0_[Date].md`
+- `[ProjectName]/07_[CompanyName]_Financial_Model_v1.0_[Date].md`
 
 **Input Files Optional:**
-- `05_outputs/[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/05_[CompanyName]_Risk_Analysis_v1.0_[Date].md`
+- `[ProjectName]/06_[CompanyName]_Go_to_Market_Strategy_v1.0_[Date].md`
 
 **What to Extract from Each Document:**
 - Vision Brief: Funding amount, next steps and milestones
 - Team Credentials: Hiring plan (roles, timing, costs), team gaps
 - Financial Model: Monthly burn rate, cost breakdown by category, quarterly spending, hiring costs, runway targets
 - Risk Analysis: Contingency planning needs, financial risks
+- Go-to-Market Strategy: Marketing/sales budget allocation, acquisition channel costs
 
-**Output File:** `07_outputs/[CompanyName]_Use_of_Funds_v1.0_[Date].md`
-**Used By:** Technical Requirements (09), Roadmap (10)
+**Output File:** `[ProjectName]/08_[CompanyName]_Use_of_Funds_v1.0_[Date].md`
+**Used By:** Technical Requirements (10), Roadmap (11)
 **Execution Time:** 2-3 hours
 
 **Critical:** Every dollar must tie to specific outcomes, include 15-20% contingency reserve

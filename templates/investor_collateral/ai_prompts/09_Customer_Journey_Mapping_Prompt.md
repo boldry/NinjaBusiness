@@ -2,25 +2,25 @@
 
 ---
 ## 🔄 WORKFLOW CONTEXT
-**Position:** Stage 4 - Implementation Planning (Execute after Stage 3)
-**Dependencies:** Vision Brief (01), Market Analysis (02), Competitive Analysis (04)
+**Position:** Stage 5 - Implementation Planning (Execute after Stage 4)
+**Dependencies:** Vision Brief (01), Market Analysis (02), Competitive Analysis (04), Go-to-Market Strategy (06), Financial Model (07)
 
 **Input Files Required:**
-- `01_outputs/[CompanyName]_Vision_Brief_v1.0_[Date].md`
-- `02_outputs/[CompanyName]_Market_Analysis_v1.0_[Date].md`
-- `04_outputs/[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
-
-**Input Files Optional:**
-- `06_outputs/[CompanyName]_Financial_Model_v1.0_[Date].md`
+- `[ProjectName]/01_[CompanyName]_Vision_Brief_v1.0_[Date].md`
+- `[ProjectName]/02_[CompanyName]_Market_Analysis_v1.0_[Date].md`
+- `[ProjectName]/04_[CompanyName]_Competitive_Analysis_v1.0_[Date].md`
+- `[ProjectName]/06_[CompanyName]_Go_to_Market_Strategy_v1.0_[Date].md`
+- `[ProjectName]/07_[CompanyName]_Financial_Model_v1.0_[Date].md`
 
 **What to Extract from Each Document:**
-- Vision Brief: Core concept, value proposition, target customers, solution description
+- Vision Brief: Core concept, value proposition, target customers, solution description, business model
 - Market Analysis: Customer personas (detailed), pain points, segments, buying behavior
-- Competitive Analysis: Competitive touchpoints, customer experience gaps
-- Financial Model (optional): Conversion targets, CAC, retention targets
+- Competitive Analysis: Competitive touchpoints, customer experience gaps, differentiation
+- Go-to-Market Strategy: Acquisition channels, customer touchpoints, sales process
+- Financial Model: Conversion targets, CAC, retention targets, sales cycle length
 
-**Output File:** `08_outputs/[CompanyName]_Customer_Journey_v1.0_[Date].md`
-**Used By:** Roadmap (10)
+**Output File:** `[ProjectName]/09_[CompanyName]_Customer_Journey_v1.0_[Date].md`
+**Used By:** Roadmap (11)
 **Execution Time:** 2-3 hours
 ---
 
