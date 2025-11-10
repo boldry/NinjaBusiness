@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .t1 { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #0F172A; }
+      .t2 { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #0B1220; }
+      .s  { font: 400 13px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .pill { rx: 16; ry: 16; }
+    </style>
+    <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F4C81"/><stop offset="100%" stop-color="#2D7DD2"/>
+    </linearGradient>
+    <linearGradient id="c2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2BB3BF"/><stop offset="100%" stop-color="#0AA3A3"/>
+    </linearGradient>
+    <linearGradient id="c3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C4DFF"/><stop offset="100%" stop-color="#5B30E6"/>
+    </linearGradient>
+    <linearGradient id="c4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="c5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <text x="50" y="46" class="t1">Five‑Phase Venture Lifecycle (Stage‑Gate)</text>
+  <text x="50" y="70" class="s">Capital gates at each phase; ADF + shared services compress cycles (target up to 50% faster; validation in progress).</text>
+
+  <!-- Idea -->
+  <rect x="50" y="120" width="200" height="80" fill="url(#c1)" class="pill"/>
+  <text x="150" y="150" class="t2" text-anchor="middle" fill="#FFFFFF">Idea</text>
+  <text x="150" y="170" class="s" text-anchor="middle" fill="#E6F0FF">thesis, interviews, TAM/SAM/SOM</text>
+
+  <!-- Arrow -->
+  <path d="M 250 160 L 300 160" stroke="#475569" stroke-width="3"/>
+  <polygon points="300,160 290,154 290,166" fill="#475569"/>
+
+  <!-- Design -->
+  <rect x="300" y="120" width="220" height="80" fill="url(#c2)" class="pill"/>
+  <text x="410" y="150" class="t2" text-anchor="middle" fill="#05282C">Design</text>
+  <text x="410" y="170" class="s" text-anchor="middle" fill="#08343A">prototypes, blueprints, ADF architecture</text>
+
+  <!-- Arrow -->
+  <path d="M 520 160 L 580 160" stroke="#475569" stroke-width="3"/>
+  <polygon points="580,160 570,154 570,166" fill="#475569"/>
+
+  <!-- Development -->
+  <rect x="580" y="120" width="240" height="80" fill="url(#c3)" class="pill"/>
+  <text x="700" y="150" class="t2" text-anchor="middle" fill="#FFFFFF">Development</text>
+  <text x="700" y="170" class="s" text-anchor="middle" fill="#EDE9FE">MVP, integrations, security/compliance</text>
+
+  <!-- Arrow -->
+  <path d="M 820 160 L 900 160" stroke="#475569" stroke-width="3"/>
+  <polygon points="900,160 890,154 890,166" fill="#475569"/>
+
+  <!-- Deployment/Scale -->
+  <rect x="900" y="120" width="260" height="80" fill="url(#c4)" class="pill"/>
+  <text x="1030" y="150" class="t2" text-anchor="middle" fill="#231F0F">Deployment / Scale</text>
+  <text x="1030" y="170" class="s" text-anchor="middle" fill="#2F260A">pricing, enablement, SLOs, repeatable sales</text>
+
+  <!-- Continuous Improvement -->
+  <rect x="210" y="260" width="320" height="80" fill="url(#c5)" class="pill"/>
+  <text x="370" y="290" class="t2" text-anchor="middle" fill="#052B22">Continuous Improvement</text>
+  <text x="370" y="310" class="s" text-anchor="middle" fill="#07362B">feature depth, agent/data reuse, GTM expansion</text>
+
+  <!-- Loop arrow from Deployment back to CI -->
+  <path d="M 1030 200 C 1030 240, 800 240, 530 300" stroke="#059669" stroke-width="3" fill="none"/>
+  <polygon points="530,300 540,294 540,306" fill="#059669"/>
+</svg>
+
+
